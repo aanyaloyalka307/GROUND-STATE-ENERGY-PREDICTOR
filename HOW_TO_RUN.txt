@@ -1,0 +1,88 @@
+HOW TO RUN THE VQE EXPERIMENT APP
+=================================
+
+You do NOT need to know how to code. Just follow these steps.
+
+STEP 1: Open the folder
+------------------------
+Open the "groundstate_energy_predictor" folder (the one this file is in)
+in Finder.
+
+STEP 2: Double-click one file
+-------------------------------
+Double-click:
+
+      Run_VQE_App.command
+
+A black Terminal window will pop up. The first time you run it, it will
+automatically download a few free packages it needs (this can take a
+minute or two - you'll see text scrolling by, that's normal). After that,
+a proper app window titled "VQE Experiment" will open on its own.
+
+If you see a security warning the very first time
+---------------------------------------------------
+Some Macs show a popup like "Run_VQE_App.command cannot be opened because
+it is from an unidentified developer." If that happens:
+   1. Right-click (or Control-click) on "Run_VQE_App.command"
+   2. Choose "Open" from the menu
+   3. Click "Open" again in the popup that appears
+This only needs to be done once.
+
+STEP 3: Use the app
+---------------------
+In the app window:
+   1. Leave "Local simulator (free, no account)" selected - this is the
+      easy, free option and needs no sign-up.
+   2. Leave the default settings as they are.
+   3. Click the "Run experiment" button.
+   4. Watch the "Progress" box - it will show live updates as it works.
+   5. When it says "Done!", click "Show plots (incl. 3D)". Several windows
+      will open:
+        - convergence graphs (how the energy settled down),
+        - a 3D energy-landscape surface (the red dot is the answer found),
+        - IBM-style 3D "density matrix" cityscape plots, and
+        - a Bloch-sphere view of the qubits.
+      Tip: you can click and drag inside any 3D plot to rotate it.
+
+That's it! You just simulated the ground-state energy of hydrogen atoms
+and a hydrogen molecule using a real quantum computing algorithm, and
+visualized it the same way IBM's own quantum tools do.
+
+FOR CODERS: THE ONE-COMMAND VERSION
+-------------------------------------
+The entire program (both the quantum logic and the app window) lives in a
+single file:
+
+      vqe_code.py
+
+You don't need any other file to run it. Just:
+
+   1. Install the packages once (only needed the first time):
+         pip install qiskit qiskit-aer qiskit-ibm-runtime scipy matplotlib numpy
+   2. Run it with one command:
+         python3 vqe_code.py
+
+The same app window opens, and it works exactly like the double-click
+version above (the "Run_VQE_App.command" launcher simply runs vqe_code.py
+for you).
+
+WHAT ABOUT "Real IBM quantum computer" MODE?
+----------------------------------------------
+That option sends your job to an actual quantum computer over the
+internet. It requires a free IBM Quantum account (with an API key), can
+take longer due to queues, and uses your account's usage quota. Beginners
+should stick with "Local simulator" - it gives very similar results
+instantly and for free.
+
+TROUBLESHOOTING
+-----------------
+- Nothing happens when I double-click the file:
+     Try the right-click -> Open method described above.
+
+- It says "Python 3 was not found":
+     Go to https://www.python.org/downloads/ , download and install
+     Python, then double-click Run_VQE_App.command again.
+
+- The Terminal window shows an error and closes:
+     Make sure you're connected to the internet (needed the first time
+     to download packages), then try again.
